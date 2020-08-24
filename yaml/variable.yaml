@@ -1,0 +1,15 @@
+---
+# Setting "test" value to "123" 
+  test: 123 # integer
+# Setting "test" value to "1234"
+  test2: 1234
+# 
+  test3: "onetwothree" # string
+
+  test4: "123" # strings
+  test5: "12" # strings
+
+  test6: True  # boolean
+  test7: False # boolean
+  test8: 
+

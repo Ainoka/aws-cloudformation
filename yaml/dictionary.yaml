@@ -1,0 +1,25 @@
+---
+# This is dictionary
+# Dictionary - contains multiple variables, lists, or combination of both.
+
+# Dictionary 2 varables and both have string values
+test: { a: "bob", b: "anna"}
+
+#
+test:
+  a:
+    - "bob"
+  b:
+    - "anna"
+
+# 
+test2:         # Dictionary with a list
+  list1:       # This is list (Dictionary (List) with a variable)
+    a:         # Nested (list with multiple values) 
+      - "bob"
+      - "anna"
+      - "amy"
+      - list: # Nested list
+          - "groupa"
+          - "groupb"
+

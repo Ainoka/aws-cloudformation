@@ -1,0 +1,16 @@
+---
+# list = arrays 
+# variables
+a: "test"
+
+# list - string value (Method1)
+b: ["test", "test2", "test3"]
+
+# list - string value (Method 2)
+b:
+  - "test"
+  - "test2"
+  - "test3"
+  
+# list - integer (numeric values)
+c: [1,2,3,4]
