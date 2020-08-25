@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+Resources:
+  Subnets:
+  Type: AWS::EC2::Subnet
+  Properties:
+    VpcId: vpc-0dbe8f29100418d10
+    AvailabilityZone: us-east-1
+    CidrBlock: 11.0.1.0/24
+    MapPublicIpOnLaunch: "false" 
+    Tags:
+      -Key: Name
+      Value: public-sub-1
+

@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow ssh port
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+      CidrIp: 0.0.0.0/0
+      FromPort: 22
+      ToPort: 22
+      GroupName: "SG-EC2"
+      Tags:
+        - Key: "GroupName"
+          Value: "SG-EC2"
+

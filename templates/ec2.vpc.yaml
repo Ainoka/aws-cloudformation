@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  InstanceTenancy:
+    - dedicated
+    - default
+Resources:
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: !Ref VPC
+      InstanceTenancy: 
+      Tags: 
+        - Key: Name
+          Value: VPC.test
+       
