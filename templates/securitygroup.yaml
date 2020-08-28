@@ -1,16 +1,17 @@
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
-  InstanceSecurityGroup:
+  MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow ssh port
-      SecurityGroupIngress:
-      - IpProtocol: tcp
-      CidrIp: 0.0.0.0/0
-      FromPort: 22
-      ToPort: 22
+      GroupDescription: "Security group for EC2"
       GroupName: "SG-EC2"
+      SecurityGroupIngress:
+        - IpProtocol: "tcp"
+          CidrIp: "0.0.0.0/0"
+          FromPort: 22
+          ToPort: 22
       Tags:
         - Key: "GroupName"
           Value: "SG-EC2"
 
+ 

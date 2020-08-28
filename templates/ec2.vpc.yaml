@@ -1,15 +1,19 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Parameters:
-  InstanceTenancy:
-    - dedicated
-    - default
 Resources:
   MyVPC:
+    Description: "VPC"
     Type: AWS::EC2::VPC
     Properties: 
-      CidrBlock: !Ref VPC
-      InstanceTenancy: 
+      CidrBlock: " "
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: "default"
       Tags: 
-        - Key: Name
-          Value: VPC.test
-       
+        - Key: "Name"
+          Value: "MyVPC"
+    Type: AWS::EC2::VPCCidrBlock
+    Properties: 
+      AmazonProvidedIpv6CidrBlock: 
+      CidrBlock: 
+      VpcId: 
+    

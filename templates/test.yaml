@@ -1,10 +1,47 @@
 AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  SecurityGroup:
+    Description: "Security group for EC2"
+    Type: "AWS::EC2::SecurityGroup"
+  SecurityGroupIngress:
+    - IpProtocol: "tcp"
+      CidrIp: "0.0.0.0/0"
+      FromPort: 22
+      ToPort: 22
+  InstanceType: 
+    Description: "EC2 Instance type"
+    Type: "AWS::EC2::Instance"
+    Default: t2.micro
+    AllowesValues:
+      - t1.small
+      - t2.nano 
+      - t2.micro
+      - t2.small
+  MyVPC:
+    Description: "VPC to operte in"
+    Type: "AWS::EC2::VPC"
 Resources:
-  MyBucket:
-    Type: AWS::S3::Bucket
+  MyEc2Instance:
+    Type: "AWS::EC2::Instance"
     Properties:
-      BucketName: "ainas-cf-s3-bucket"
-      VersioningConfiguration:
-        Status: Enabled
-      AccessControl: PublicRead
-      
+      InstanceType: !Ref InstanceType
+      SecurityGroup:
+        - !Ref SecurityGroup
+      SecurityGroupIngress:
+        - !Ref SecurityGroupIngress
+  MySecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties: !Ref SecurityGroup
+  MyVPC:
+    Type: !Ref "MyVPC"
+
+
+
+
+
+
+
+
+
+    
+
