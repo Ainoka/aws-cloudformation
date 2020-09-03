@@ -1,0 +1,9 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+# VPC Gateway Attachment #attaching internet gateway to VPC#
+Resources:
+  MyVPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: "" #Enter InternetGateway
+      VpcId: "" #Enter VPC ID

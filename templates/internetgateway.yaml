@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+# Internet Gateway
+Resources:
+  MyInternateGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+       Tags:
+         - Key: "Name"
+           Value: "My-Inet"
