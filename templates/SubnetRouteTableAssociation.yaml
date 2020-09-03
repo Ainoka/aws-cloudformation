@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  Type: AWS::EC2::SubnetRouteTableAssociation
+  Properties: 
+    RouteTableId: String
+    SubnetId: String
+Resources:
+  MySubnet:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: "us-east-2a"
+      CidrBlock: "10.0.1.0/24"
+      VpcId: "vpc-09295dff206284b38"
+      Tags:
+        - Key: "Name"
+          Value: "My-sub"
+Resources:
+  MyRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties: 
+      VpcId: "vpc-09295dff206284b38"
