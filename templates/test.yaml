@@ -34,14 +34,3 @@ Resources:
     Properties: !Ref SecurityGroup
   MyVPC:
     Type: !Ref "MyVPC"
-
-
-
-
-
-
-
-
-
-    
-

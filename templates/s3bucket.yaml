@@ -1,9 +1,11 @@
 AWSTemplateFormatVersion: 2010-09-09
+
+# S3 Bucket
 Resources:
   MyBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: "cloudformation-aina-test-bucket1"
-      VersioningConfiguration:
+      BucketName: "" #enter Bucketname, BucketName has to be unique.
+      VersioningConfiguration: #if you want to restore every version of your object "Enabled"
         Status: Enabled 
       

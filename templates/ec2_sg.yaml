@@ -1,11 +1,12 @@
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   #Resource 1  
+  # Security Group EC2 Instance
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: "CloudFormationSecurityGroup"
-      GroupName: "CloudFormationSecurityGroup2"
+      GroupName: "" #Enter GroupName
       VpcId: "" #Enter VPC ID
       SecurityGroupIngress:
       - CidrIp: "0.0.0.0/0"
@@ -18,10 +19,12 @@ Resources:
         ToPort: 80
         IpProtocol: "tcp"
         Description: "HTPP from 0.0.0.0/0"
+
   #Resource 2
+  # EC2 Instance
   MyEc2Instance:
     Type: AWS::EC2::Instance
-    DependsOn: MySecurityGroup
+    DependsOn: MySecurityGroup #the previous Resource1 is specified
     Properties:
       ImageId: "ami-02354e95b39ca8dec"
       InstanceType: "t2.micro"
@@ -36,6 +39,3 @@ Resources:
           Value: "DevOps"
         - Key: "Env"
           Value: "Dev"
-
-
-      

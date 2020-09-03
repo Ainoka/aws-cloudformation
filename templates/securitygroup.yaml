@@ -1,10 +1,12 @@
 AWSTemplateFormatVersion: 2010-09-09
+
+# Security Group for EC2 Instance
 Resources:
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: "Security group for EC2"
-      GroupName: "SG-EC2"
+      GroupName: "" #Enter GroupName
       SecurityGroupIngress:
         - IpProtocol: "tcp"
           CidrIp: "0.0.0.0/0"

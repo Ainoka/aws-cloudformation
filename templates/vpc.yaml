@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-# VPC ## cloudformation-template
+# VPC
 Resources:
   MyVPC:
     Type: AWS::EC2::VPC

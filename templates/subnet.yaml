@@ -1,4 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
+
+# Public Subnet
 Resources:
   MySubnet:
     Type: AWS::EC2::Subnet

@@ -1,25 +1,25 @@
 AWSTemplateFormatVersion: 2010-09-09
 
 # Resources Section
+# Subnet Route Table Association
 Resources:
-  Type: AWS::EC2::SubnetRouteTableAssociation
-  Properties: 
-    RouteTableId: String
-    SubnetId: String
-
+  MySubnetRouteTableAsseciation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref MyRouteTable #
+      SubnetId: !Ref MySubnet
   # Subnet 1 - Public
   MySubnet:
     Type: AWS::EC2::Subnet
-    Properties: 
-      AvailabilityZone: "us-east-2a"
+    Properties:
+      AvailabilityZone: "us-east-2a" 
       CidrBlock: "10.0.1.0/24"
-      VpcId: ""
+      VpcId: "vpc-09295dff206284b38" # enter VPC ID
       Tags:
         - Key: "Name"
           Value: "My-sub"
-
   # RouteTable - Public
   MyRouteTable:
     Type: AWS::EC2::RouteTable
-    Properties: 
-      VpcId: ""
+    Properties:
+      VpcId: "vpc-09295dff206284b38" # enter VPC ID
