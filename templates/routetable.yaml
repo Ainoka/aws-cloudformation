@@ -1,6 +1,8 @@
 AWSTemplateFormatVersion: 2010-09-09
+
+# RouteTable 
 Resources:
   MyRouteTable:
     Type: AWS::EC2::RouteTable
     Properties: 
-      VpcId: "vpc-09295dff206284b38"
+      VpcId: ""
