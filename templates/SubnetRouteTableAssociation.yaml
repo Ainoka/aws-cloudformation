@@ -1,10 +1,13 @@
 AWSTemplateFormatVersion: 2010-09-09
+
+# Resources Section
 Resources:
   Type: AWS::EC2::SubnetRouteTableAssociation
   Properties: 
     RouteTableId: String
     SubnetId: String
-Resources:
+
+  # Subnet 1 - Public
   MySubnet:
     Type: AWS::EC2::Subnet
     Properties: 
@@ -14,7 +17,8 @@ Resources:
       Tags:
         - Key: "Name"
           Value: "My-sub"
-Resources:
+
+  # RouteTable - Public
   MyRouteTable:
     Type: AWS::EC2::RouteTable
     Properties: 
