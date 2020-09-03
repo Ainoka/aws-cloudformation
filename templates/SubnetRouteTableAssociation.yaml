@@ -6,15 +6,15 @@ Resources:
   MySubnetRouteTableAsseciation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: !Ref MyRouteTable #
-      SubnetId: !Ref MySubnet
+      RouteTableId: !Ref MyRouteTable #Ref returns the value of MyRouteTable
+      SubnetId: !Ref MySubnet #Ref returns the value of MySubnet
   # Subnet 1 - Public
   MySubnet:
     Type: AWS::EC2::Subnet
     Properties:
       AvailabilityZone: "us-east-2a" 
       CidrBlock: "10.0.1.0/24"
-      VpcId: "vpc-09295dff206284b38" # enter VPC ID
+      VpcId: "" # enter VPC ID
       Tags:
         - Key: "Name"
           Value: "My-sub"
@@ -22,4 +22,4 @@ Resources:
   MyRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
-      VpcId: "vpc-09295dff206284b38" # enter VPC ID
+      VpcId: "" # enter VPC ID
