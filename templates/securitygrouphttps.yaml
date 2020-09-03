@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+# Security Group #rule allow HTTPS
+Resources:
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties: 
+      GroupDescription: "Security Group with rule thats allows only HTTPS"
+      GroupName: "Secure-Security-Group"
+      SecurityGroupIngress: 
+        - IpProtocol: "tcp"
+          CidrIp: "0.0.0.0/0"
+          FromPort: 443
+          ToPort: 443
+      Tags: 
+        - Key: "Dev"
+          Value: "Aina"
