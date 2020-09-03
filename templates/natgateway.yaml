@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+# NAT Gateway
+#Resources:
+#  MyNatGatway:
+#    Type: AWS::EC2::NatGateway
+#    Properties:
+#      AllocationId: String
+#      SubnetId: ""
+#      Tags:
+#         - Key:
+#           Value:
