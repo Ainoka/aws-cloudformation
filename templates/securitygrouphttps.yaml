@@ -5,7 +5,7 @@ Resources:
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties: 
-      GroupDescription: "Security Group with rule thats allows only HTTPS"
+      GroupDescription: "Security Group with Rule thats allows only HTTPS"
       GroupName: "Secure-Security-Group"
       SecurityGroupIngress: 
         - IpProtocol: "tcp"
