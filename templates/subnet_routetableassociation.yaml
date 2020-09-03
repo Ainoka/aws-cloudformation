@@ -1,9 +1,0 @@
-AWSTemplateFormatVersion: 2010-09-09
-
-# SubnetRouteTableAssociation
-Resources:
-  MySubnetRouteTableAsseciation:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties: 
-      RouteTableId: "" #Enter RouteTable ID
-      SubnetId: "" #Enter Subnet ID
