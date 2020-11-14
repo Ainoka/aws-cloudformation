@@ -26,8 +26,8 @@ Resources:
     Type: AWS::EC2::Instance
     DependsOn: MySecurityGroup #the previous Resource1 is specified
     Properties:
-      ImageId: "ami-02354e95b39ca8dec"
-      InstanceType: "t2.micro"
+      ImageId: "#enter id"
+      InstanceType: "#enter instance type#"
       SubnetId: ""  #Enter Subnet ID
       SecurityGroupIds:
         - Ref: "MySecurityGroup"

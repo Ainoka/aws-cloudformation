@@ -12,8 +12,8 @@ Resources:
   MySubnet:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: "us-east-2a" 
-      CidrBlock: "10.0.1.0/24"
+      AvailabilityZone: "" 
+      CidrBlock: ""
       VpcId: "" # enter VPC ID
       Tags:
         - Key: "Name"

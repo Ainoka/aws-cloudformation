@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: 2010-09-09
+#Resource 1 # creating VPC
+Resources:
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: ""
+      InstanceTenancy: "default"
+
+#Resource 2 # creating Public Subnet
+# Public Subnet 1
+Resources:
+  MySubnet1:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: ""
+      CidrBlock: ""
+      VpcId:
+        Ref: "MyVPC" #enter VPC ID
+      Tags:
+        - Key: "Name"
+          Value: "pub-sub-1"
+
+#Resource 3 # creating Public Subnet 2
+# Public Subnet 2
+Resources:
+  MySubnet2:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: ""
+      CidrBlock: ""
+      VpcId:
+        Ref: "MyVPC" #enter VPC ID
+      Tags:
+        - Key: "Name"
+          Value: "pub-sub-2"
+
+#Resource 4 # creating Public Subnet 3
+# Public Subnet 3
+Resources:
+  MySubnet3:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: ""
+      CidrBlock: ""
+      VpcId:
+        Ref: "MyVPC" #enter VPC ID
+      Tags:
+        - Key: "Name"
+          Value: "pub-sub-3"
+
+#Resource 5 # creating Public Route Table
+#  Public Route Table
+Resources:
+  MyPublic\RouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties: 
+      Tags: 
+        - Key: "Name"
+          Value: "Pub-Route-Table"
+      VpcId:
+        Ref: "MyVPC"
+
+#Resource 6 # associating pub-subnet-1 to Pub-Route Table
+Resources:
+  SubnetRouteTableAssociation1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties: 
+      RouteTableId:
+        Ref: "MyRouteTable"
+      SubnetId:
+        Ref: "MySubnet1"
+
+#Resource 7 # Associating pub-subnet-2 to Pub-Route Table
+Resources:
+  SubnetRouteTableAssociation2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties: 
+      RouteTableId:
+        Ref: "MyRouteTable"
+      SubnetId:
+        Ref: "MySubnet2"
+
+#Resource 8 # Associating pub-subnet-3 to Pub-Route Table
+Resources:
+  SubnetRouteTableAssociation3:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties: 
+      RouteTableId:
+        Ref: "MyRouteTable"
+      SubnetId:
+        Ref: "MySubnet3"
+
+#Resource 9 # creating Internet Gateway
+# Internet Gateway
+Resources:
+  MyInternateGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+       Tags:
+         - Key: "Name"
+           Value: "My-Inet"
+
+Resources:
+  MyVPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties: 
+      InternetGatewayId:
+        Ref: "MyInternateGateway"
+      VpcId:
+        Ref: "MyVPC"

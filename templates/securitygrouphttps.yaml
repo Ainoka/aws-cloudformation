@@ -14,4 +14,4 @@ Resources:
           ToPort: 443
       Tags: 
         - Key: "Dev"
-          Value: "Aina"
+          Value: "#enter the value"

@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: 2010-09-09
+#Resource 1 # creating VPC
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: ""
+      InstanceTenancy: "default"
+
+#Resource 2 # creating Public Subnet
+# Public Subnet 1
+Resources:
+  Subnet:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: "us-east-2a"
+      CidrBlock: ""
+      VpcId:
+        Ref: "VPC" #enter VPC ID
+      Tags:
+        - Key: "Name"
+          Value: "pub-sub-1"
