@@ -62,8 +62,8 @@ Parameters:
 # Define Resources
 Resources:
   # EC2-Wordpress 
-  DBInstance:
-    Type: AWS::RDS::DBInstance
+  WPInstance:
+    Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref WPImageID
       InstanceType: !Ref InstanceType
@@ -80,7 +80,7 @@ Resources:
           Value: !Ref EnvTagValue
 
 # Define Outputs
-#Outputs:
-#  InstancePublicIp:
-#    Description: Instance Public IP Address
-#    Value: !GetAtt DBInstance.PublicIP
+Outputs:
+  InstancePublicIp:
+    Description: Instance Public IP Address
+    Value: !GetAtt WPInstance.PublicIp

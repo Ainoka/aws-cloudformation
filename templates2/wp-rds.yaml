@@ -1,0 +1,89 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description:
+
+# Define Parameters
+Parameters:
+
+  # Master user Name
+  MasterName:
+    Type: String
+    Default: ''
+    Description: Enter Master User Name
+
+  # Master Password
+  MasterPassword:
+    Type: String
+    Default: ''
+    Description: Enter Master Password
+
+  # Subnet 1
+  Subnet1:
+    Type: String
+    Default: subnet-01318110118aa69e7
+    Description: Subnet ID
+
+  # Subnet 2
+  Subnet2:
+    Type: String
+    Default: subnet-0bff6ce71879257ae
+    Description: Subnet ID
+
+  # Database Name
+  DataBaseName:
+    Type: String
+    Default: 'WordPressDB'
+    Description: Database Name
+
+# Define Resources
+Resources:
+  DBSubnetGroup:
+  Type: AWS::RDS::DBSubnetGroup
+  Properties: 
+    DBSubnetGroupDescription: Subnet Group for RDS
+    DBSubnetGroupName: WordPressDBSubnetGroup
+    SubnetIds: 
+      - !Ref Subnet1
+      - !Ref Subnet2
+
+  # Define Security Group
+  #RDSSecurityGroup:
+  #Type: AWS::RDS::DBSecurityGroup
+  #Properties: 
+  #  DBSecurityGroupIngress: 
+  #    EC2SecurityGroupId: sg-0eb52bb384864f891
+  #  EC2VpcId: vpc-4261883f
+  #  GroupDescription: WordPressDB Security Group
+      
+  # DataBase Instance
+  WordPressRDS:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      Engine: mariadb
+      EngineVersion: 10.4.8
+      DBInstanceClass: db.t2.micro
+      DBName: !Ref DataBaseName
+      MasterUserName: !Ref MasterName
+      MasterUserPassword: !Ref MasterPassword
+      StorageType: gp2
+      AllocatedStorage: 20
+      MaxAllocatedStorage: 50
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      PubliclyAccessible: false
+      #DBSecurityGroups:
+      #  - !Ref RDSSecurityGroup
+      BackupRetentionPeriod: 
+      DeletionProtection: false
+      
+
+
+
+# Define Outputs
+Outputs:
+  DBName:
+    Description: Database Name
+    Value: !Ref WordpressRDS
+  #DBSG:
+  #  Description: Database Security Group
+  #  Value: !Ref RDSSecurityGroup
+  DBSubnet:
+    Description: Database Su

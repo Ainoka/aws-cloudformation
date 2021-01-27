@@ -6,19 +6,19 @@ Parameters:
   # Default VPC ID
   DefaultVPCId:
     Type: String
-    Default: '' 
+    Default: 'vpc-4261883f' 
     Description: Enter VPC-ID
   
   # WP Security Group Name
   WPSecurityGroupName:
     Type: String
-    Default: ''
+    Default: 'WP-SG'
     Description: Enter Security Group Name
 
   # Define CidrIp
   MyNetworkIp:
     Type: String
-    Default: '' 
+    Default: '73.246.52.154/32' 
     Description: Enter Your NetWork IP Address
 
   # Required Tags 
